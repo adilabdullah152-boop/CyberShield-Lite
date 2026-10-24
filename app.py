@@ -32,8 +32,6 @@ def assess_port_risk(port):
 
     return "No rule matched", "This simple check found no specific rule for this port"
 
-
-
 st.set_page_config(
     page_title="CyberShield Lite",
     page_icon="🛡️",
@@ -64,13 +62,12 @@ st.sidebar.info(
 )
 st.divider()
 
-# Basic computer information
 operating_system = platform.system()
 architecture = platform.machine()
 
 if st.button("🔄 Refresh System Status"):
     st.rerun()
-# Read RAM and CPU information
+
 memory = psutil.virtual_memory()
 total_ram = memory.total / (1024 ** 3)
 available_ram = memory.available / (1024 ** 3)
@@ -83,7 +80,7 @@ elif cpu_used < 80:
 else:
     st.error("CPU usage is high.")
 
-# Display three dashboard columns
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
